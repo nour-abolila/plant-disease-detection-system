@@ -46,7 +46,6 @@ plant-disease-detection-system/
 - Each developer works on their own branch.  
 - Pull Requests are reviewed and merged into `main`.
 -->
----
 
 
 ## 📄 License
