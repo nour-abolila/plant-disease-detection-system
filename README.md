@@ -34,11 +34,10 @@ plant-disease-detection-system/
 | [Name] | AI Developer | Dataset preprocessing, Training AI Model, Prediction Logic |
 | [Name] | UI Developer | Mobile / Web UI, API Integration, User Experience |
 
-> Replace `[Name]` with your teammates’ names.
 
 ---
 
-## 🔗 GitHub Workflow
+<!--## 🔗 GitHub Workflow
 - Main branch: `main` (stable version)  
 - Feature branches:  
   - Backend: `backend-dev`  
@@ -46,15 +45,9 @@ plant-disease-detection-system/
   - AI: `ai-dev`  
 - Each developer works on their own branch.  
 - Pull Requests are reviewed and merged into `main`.
-
+-->
 ---
 
-## 📌 Notes
-- Add UI and AI folders when ready.  
-- Keep `main` branch stable; do not push directly.  
-- Commit messages should be clear and descriptive.  
-
----
 
 ## 📄 License
 This project is for **educational purposes** – Faculty Graduation Project.
