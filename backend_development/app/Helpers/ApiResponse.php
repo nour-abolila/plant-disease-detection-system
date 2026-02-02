@@ -9,7 +9,7 @@ class ApiResponse
     public static function success(string $message = 'Success', $data = [], int $status = 200): JsonResponse
     {
         return response()->json([
-            'status'  => 'success',
+            'status'  => $status,
             'message' => $message,
             'data'    => $data,
         ], $status);
@@ -18,7 +18,7 @@ class ApiResponse
     public static function error(string $message = 'Error', $errors = [], int $status = 400): JsonResponse
     {
         return response()->json([
-            'status'  => 'error',
+            'status'  => $status,
             'message' => $message,
             'errors'  => $errors,
         ], $status);
