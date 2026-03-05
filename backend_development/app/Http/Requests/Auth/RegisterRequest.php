@@ -12,7 +12,7 @@ class RegisterRequest extends FormRequest
     public function authorize(): bool
     {
         return true;  // Allow all users to make this request
-                      // لازم اخليها true عشان اي حد يقدر يعمل تسجيل دخول   
+        // لازم اخليها true عشان اي حد يقدر يعمل تسجيل دخول   
     }
 
     /**

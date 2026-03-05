@@ -4,7 +4,7 @@ namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class VerifyPasswordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email'    => 'required|email',
-            'password' => 'required|string|min:6',
+            'email' => ['required', 'email', 'exists:users,email'],
+            'otp_code' => ['required', 'digits:6'],
         ];
     }
 
@@ -31,8 +31,10 @@ class LoginRequest extends FormRequest
     {
         return [
             'email.required' => 'Email is required.',
-            'password.required' => 'Password is required.',
-            'password.min'      => 'Password must be at least 6 characters.',
+            'email.email' => 'Please provide a valid email address.',
+            'email.exists' => 'No account found with this email.',
+            'otp_code.required' => 'OTP code is required.',
+            'otp_code.digits' => 'OTP code must be 6 digits.',
         ];
     }
 }

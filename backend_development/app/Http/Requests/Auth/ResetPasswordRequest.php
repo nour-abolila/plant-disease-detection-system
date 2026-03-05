@@ -23,7 +23,6 @@ class ResetPasswordRequest extends FormRequest
     {
         return [
             'email' => ['required', 'email', 'exists:users,email'],
-            'otp' => ['required', 'digits:6'],
             'password' => ['required', 'confirmed', 'min:8'],
         ];
     }
@@ -34,8 +33,6 @@ class ResetPasswordRequest extends FormRequest
             'email.required' => 'Email is required.',
             'email.email' => 'Please provide a valid email address.',
             'email.exists' => 'No account found with this email.',
-            'otp.required' => 'OTP code is required.',
-            'otp.digits' => 'OTP code must be 6 digits.',
             'password.required' => 'Password is required.',
             'password.confirmed' => 'Password confirmation does not match.',
             'password.min' => 'Password must be at least 8 characters long.',

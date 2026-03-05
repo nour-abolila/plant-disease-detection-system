@@ -27,6 +27,7 @@ class AuthService
         return $user; // Return the created user instance
     }
 
+
     public function verifyEmail(User $user): void //  دى بتاخد اليوزر وبتحدثله عمود التحقق بتاع الايميل
     {
         $user->update([
@@ -35,14 +36,13 @@ class AuthService
     }
 
 
-
-    public function login(array $data) // تسجيل الدخول
+    public function login(array $data)
     {   // التحقق من صحة بيانات الدخول
         $user = User::where('email', $data['email'])->first();
 
         // لو الايميل مش موجود او الباسورد غلط
         if (!$user || !Hash::check($data['password'], $user->password)) {
-            throw new \Exception('The provided credentials are incorrect.');
+            return null;
         }
 
         // لو المستخدم مسجل بس الايميل مش متفعل
@@ -61,7 +61,6 @@ class AuthService
     }
 
 
-
     public function logout(User $user): void
     {
         // مسح كل التوكنات بتاعت المستخدم
@@ -69,13 +68,11 @@ class AuthService
     }
 
 
-
     public function forgetPassword(string $email): User
     {
+        // البحث عن المستخدم بناءً على البريد الإلكتروني
         return User::where('email', $email)->firstOrFail();
-        return $user;
     }
-
 
 
     public function resetPassword(User $user, string $password): void

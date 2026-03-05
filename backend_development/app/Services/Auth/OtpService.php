@@ -26,14 +26,12 @@ class OtpService
     }
 
 
-
     // إرسال OTP بالبريد الإلكتروني
     public function sendOtpEmail(User $user, $otp)
     {
         // هنا بنبعت الكود الأصلي اللي اتولد
         Mail::to($user->email)->send(new OtpMail($otp));
     }
-
 
 
     // التحقق من صحة OTP
@@ -43,6 +41,7 @@ class OtpService
         if (!$user->otp_code || !$user->otp_expires_at) {
             return false;
         }
+
         // لو الكود انتهت صلاحيته
         if (Carbon::now()->greaterThan($user->otp_expires_at)) {
             $this->clearOtp($user);
